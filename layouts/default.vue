@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -58,7 +58,7 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container class="container-wrapper">
         <Nuxt />
       </v-container>
     </v-main>
@@ -98,21 +98,22 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-newspaper',
+          title: 'News',
           to: '/'
         },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'News API'
     }
   }
 }
 </script>
+<style scoped>
+.container-wrapper {
+    background-color: rgb(247, 247, 247);
+    border-color: rgb(247, 247, 247);
+}
+</style>

@@ -54,11 +54,10 @@ export default {
   },
   watch: {
     news () {
-      
       this.pagination = {
         total: this.news.totalResults,
-        page: 1,
-        limit: 10
+        page: this.pagination.page,
+        limit: this.pagination.limit
       }
     }
   },
@@ -88,10 +87,12 @@ export default {
     handlePagination (type) {
       switch (type) {
       case 'next':
-        this.getNews({ ...this.metaFilter, pageSize: this.pagination.limit, page: this.pagination.page + 1 })
+        this.pagination.page = this.pagination.page + 1
+        this.getNews({ ...this.metaFilter, pageSize: this.pagination.limit, page: this.pagination.page })
         break
       case 'prev':
-        this.getNews({ ...this.metaFilter, pageSize: this.pagination.limit, page: this.pagination.page - 1 })
+      this.pagination.page = this.pagination.page - 1
+        this.getNews({ ...this.metaFilter, pageSize: this.pagination.limit, page: this.pagination.page })
         break
       default:
         break

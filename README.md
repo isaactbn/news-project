@@ -1,6 +1,6 @@
 # news-api-project
 
-# NOTES
+# NOTES BEFORE BUILD THIS APP
 When you go to the details page, the detail data will be brought in using vuex data mutations. When refreshing the detail page, the detail data will be lost and the user will be automatically redirected to the start page.
 
 ## Build Setup

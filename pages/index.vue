@@ -15,6 +15,7 @@
       :handle-item-per-page="handleItemPerPage"
       :sort="sort"
       :sort-by="sort_by"
+      :handle-click-detail="handleClickDetail"
     />
   </v-container>
 </template>
@@ -24,7 +25,6 @@ import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { debounce } from 'debounce'
 import HeaderUser from '~/components/page/list/HeaderUser'
 import ContentUser from '~/components/page/list/ContentUser'
-import { formatDateTimeToUTC, formatDateTimeToUTC2 } from '~/utils/formater'
 
 export default {
   layout: 'dashboard',
@@ -104,6 +104,9 @@ export default {
         this.getNews({ ...this.metaFilter, start_date: undefined, end_date: undefined })
       }
     },
+    handleClickDetail () {
+      this.$router.push('/detail')
+    }
   }
 }
 </script>

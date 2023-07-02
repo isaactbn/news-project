@@ -6,9 +6,10 @@
       :items="news.articles"
       item-key="id"
       class="elevation-1"
-      style="color: #373737"
+      style="color: #373737; cursor: pointer;"
       hide-default-footer
       disable-sort
+      @click:row="handleClickDetail(headers.id)"
     >
       <!-- eslint-disable-next-line -->
       <template v-slot:header.author >
@@ -75,7 +76,11 @@ export default {
     sort: {
       required: true,
       type: String
-    }
+    },
+    handleClickDetail: {
+      required: true,
+      type: Function
+    },
   },
   data () {
     return {

@@ -4,12 +4,12 @@
       v-model="selected"
       :headers="headers"
       :items="news.articles"
-      item-key="id"
+      item-key="author"
       class="elevation-1"
       style="color: #373737; cursor: pointer;"
       hide-default-footer
       disable-sort
-      @click:row="handleClickDetail(headers.id)"
+      @click:row="handleClickDetail"
     >
       <!-- eslint-disable-next-line -->
       <template v-slot:header.author >
@@ -45,7 +45,7 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import { dateSpaceMonthString, datetimeString } from '~/utils/formater'
+import { dateSpaceMonthString } from '~/utils/formater'
 import Pagination from '~/components/global/Pagination'
 
 export default {
@@ -100,12 +100,6 @@ export default {
     }),
     formatDate (date) {
       return dateSpaceMonthString(date)
-    },
-    formatDateTime (date) {
-      return datetimeString(date)
-    },
-    deleteItem (item) {
-      this.setModalDelete({ isShow: true, data: item })
     },
     handleIcon (param) {
       return this.sortBy === param && this.sort.toLowerCase() === 'desc' ? 'mdi-arrow-down' : 'mdi-arrow-up'

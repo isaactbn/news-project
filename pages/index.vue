@@ -67,7 +67,8 @@ export default {
       getNews: 'list/getNews',
     }),
     ...mapMutations({
-      setMutationMetaFilter: 'list/SET_META_FILTER'
+      setMutationMetaFilter: 'list/SET_META_FILTER',
+      setDataDetail: 'detail/SET_DATA_DETAIL'
     }),
     searchData: debounce(function (q) {
       this.getNews({ ...this.metaFilter, q })
@@ -104,7 +105,8 @@ export default {
         this.getNews({ ...this.metaFilter, start_date: undefined, end_date: undefined })
       }
     },
-    handleClickDetail () {
+    handleClickDetail (item, row) {
+      this.setDataDetail(item)
       this.$router.push('/detail')
     }
   }
